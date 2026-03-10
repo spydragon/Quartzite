@@ -52,7 +52,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../../Downloads/ML_Icon.png</normaloff>../../Downloads/ML_Icon.png</iconset>
+           <normaloff>Assets/ML_Icon.png</normaloff>Assets/ML_Icon.png</iconset>
          </property>
          <property name="iconSize">
           <size>
