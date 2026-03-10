@@ -11,12 +11,18 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Quartzite</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QGroupBox" name="groupBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="minimumSize">
        <size>
         <width>40</width>
@@ -80,14 +86,18 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset theme="QIcon::ThemeIcon::ListAdd"/>
+          <iconset theme="QIcon::ThemeIcon::ListAdd">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
        <item>
         <widget class="Line" name="line_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -113,12 +123,12 @@
        <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -129,7 +139,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="layoutDirection">
-       <enum>Qt::LayoutDirection::LeftToRight</enum>
+       <enum>Qt::LeftToRight</enum>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -153,16 +163,47 @@
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QLabel" name="ProfileName">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="text">
               <string>TextLabel</string>
              </property>
             </widget>
            </item>
            <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QCommandLinkButton" name="PlayVanillaButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
-               <width>35</width>
+               <width>170</width>
                <height>16777215</height>
               </size>
              </property>
@@ -194,7 +235,7 @@
       </widget>
       <widget class="QWidget" name="DownloadTab">
        <property name="contextMenuPolicy">
-        <enum>Qt::ContextMenuPolicy::PreventContextMenu</enum>
+        <enum>Qt::NoContextMenu</enum>
        </property>
        <attribute name="title">
         <string>Download</string>
@@ -249,7 +290,7 @@
      <x>0</x>
      <y>0</y>
      <width>794</width>
-     <height>17</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -259,7 +300,14 @@
     <addaction name="actionMelon_Version"/>
     <addaction name="actionRumble_Location"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionQuartzite"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMelon_Version">
@@ -270,6 +318,11 @@
   <action name="actionRumble_Location">
    <property name="text">
     <string>Rumble Location</string>
+   </property>
+  </action>
+  <action name="actionQuartzite">
+   <property name="text">
+    <string>About Quartzite...</string>
    </property>
   </action>
  </widget>
