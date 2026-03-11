@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Quartzite VERSION 0.1 LANGUAGES CXX)
+project(Quartzite VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -14,9 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        mainwindow.h mainwindow.cpp mainwindow.ui
+        aboutdialog.h aboutdialog.cpp aboutdialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -68,3 +67,7 @@ install(TARGETS Quartzite
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Quartzite)
 endif()
+
+target_compile_definitions(Quartzite
+    PRIVATE APP_VERSION="${PROJECT_VERSION}"
+)

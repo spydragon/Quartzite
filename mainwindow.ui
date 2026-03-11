@@ -300,14 +300,16 @@
     <addaction name="actionMelon_Version"/>
     <addaction name="actionRumble_Location"/>
    </widget>
-   <widget class="QMenu" name="menuAbout">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionQuartzite"/>
+    <addaction name="actionReport"/>
+    <addaction name="actionDiscord"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuAbout"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMelon_Version">
@@ -320,9 +322,19 @@
     <string>Rumble Location</string>
    </property>
   </action>
-  <action name="actionQuartzite">
+  <action name="actionAbout">
    <property name="text">
     <string>About Quartzite...</string>
+   </property>
+  </action>
+  <action name="actionReport">
+   <property name="text">
+    <string>Report bugs</string>
+   </property>
+  </action>
+  <action name="actionDiscord">
+   <property name="text">
+    <string>Join Discord server</string>
    </property>
   </action>
  </widget>
