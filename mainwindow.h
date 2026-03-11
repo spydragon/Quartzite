@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "./settings.h"
 #include "./aboutdialog.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +21,11 @@ public:
 
 public slots:
     /*
+     * Opens a pop-up box that allows the user to change the application settings.
+     */
+    void openSettings();
+
+    /*
      * Opens a link to the issue tracker in the default web browser.
      */
     void openBugReport();
@@ -34,8 +40,24 @@ public slots:
      */
     void openAboutDialog();
 
+    /*
+     * Switches to a specific modding profile
+     */
+    void switchProfile(QString name);
+
 private:
     Ui::MainWindow *ui;
+    Settings *settings;
     AboutDialog *aboutDialog;
+
+    /*
+     * Initializes the list of available profiles
+     */
+    void initProfiles();
+
+    /*
+     * Creates a new profile entry in the drop-down menu
+     */
+    void addProfileEntry(QString name);
 };
 #endif // MAINWINDOW_H
