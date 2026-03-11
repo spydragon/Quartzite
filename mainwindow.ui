@@ -57,8 +57,8 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>Assets/ML_Icon.png</normaloff>Assets/ML_Icon.png</iconset>
+          <iconset resource="resources.qrc">
+           <normaloff>:/resources/ML_Icon.png</normaloff>:/resources/ML_Icon.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -375,6 +375,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

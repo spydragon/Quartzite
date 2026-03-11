@@ -1,0 +1,6 @@
+<RCC>
+    <qresource>
+        <file>resources/ML_Icon.png</file>
+        <file>resources/GoodDog_Plain.ttf</file>
+    </qresource>
+</RCC>
