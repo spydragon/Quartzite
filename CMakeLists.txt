@@ -14,6 +14,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
+        colorThemes.h
         mainwindow.h mainwindow.cpp mainwindow.ui
         aboutdialog.h aboutdialog.cpp aboutdialog.ui
         settings.h settings.cpp settings.ui

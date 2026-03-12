@@ -10,6 +10,7 @@ AboutDialog::AboutDialog(QWidget *parent)
     QObject::connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(accept()));
     // set the title label to display the name and version of the application
     ui->title->setText(QString("Quartzite v")+qApp->applicationVersion());
+    ui->description->setSource(QUrl("qrc:/resources/about.html"));
 }
 
 AboutDialog::~AboutDialog()

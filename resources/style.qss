@@ -1,0 +1,67 @@
+/* Global style */
+
+QWidget {
+    background-color: @COLOR_BACKGROUND;
+    font-family: Sayfull;
+    font-size: 14pt;
+    font-weight: 100;
+    border-radius: 10px;
+    padding: 10px;
+    color: @COLOR_TEXT;
+}
+
+QTabBar::tab {
+    width:300;
+    height: 30px;
+    border:none;
+    margin:0px;
+    background-color: @COLOR_ACCENT_NORMAL;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+QTabWidget::pane, QFrame#line {
+    border: 3px solid @COLOR_ACCENT_HOVER;
+}
+
+QTabBar::tab:selected {
+    background-color: @COLOR_ACCENT_HOVER;
+}
+
+QTabWidget::pane {
+    border-radius: 10px;
+}
+
+QTabWidget::tab-bar {
+    alignment: center;
+}
+
+/* Buttons */
+
+QAbstractButton, QMenu {
+    background-color: @COLOR_ACCENT_NORMAL;
+    border: 3px solid @COLOR_ACCENT_HOVER;
+}
+
+QMenu {
+    margin: 0px;
+}
+
+QAbstractButton:hover, QMenu::item:selected {
+    background-color: @COLOR_ACCENT_HOVER;
+}
+
+/* Specific buttons */
+
+QAbstractButton#PlayModdedButton {
+    background-color: @COLOR_PLAY_NORMAL;
+    border: 3px solid @COLOR_PLAY_HOVER;
+}
+
+QAbstractButton#PlayModdedButton:hover {
+    background-color: @COLOR_PLAY_HOVER;
+}
+
+QLabel#title {
+    font-size: 18pt;
+}
