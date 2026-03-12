@@ -1,0 +1,9 @@
+<RCC>
+    <qresource>
+        <file>resources/style.qss</file>
+        <file>resources/about.html</file>
+        <file>resources/ML_Icon.png</file>
+        <file>resources/GoodDog_Plain.ttf</file>
+        <file>resources/Sayfull.ttf</file>
+    </qresource>
+</RCC>
