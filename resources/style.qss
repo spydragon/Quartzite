@@ -65,3 +65,26 @@ QAbstractButton#PlayModdedButton:hover {
 QLabel#title {
     font-size: 18pt;
 }
+
+QAbstractButton#PinnedModsButton {
+    background-color: @COLOR_BACKGROUND;
+    font-size: 12px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-style: double;
+    border-bottom-width: 6;
+    border-radius: 0;
+    padding: 3px;
+}
+QAbstractButton#PinnedModsButton:hover {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_NORMAL);
+    font-size: 12px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-style: double;
+    border-bottom-width: 6;
+    border-radius: 0;
+    padding: 3px;
+}
