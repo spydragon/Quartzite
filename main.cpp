@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QFontDatabase>
 #include <QFile>
+#include <QStyleFactory>
 
 void loadStyleSheet(QString path)
 {
@@ -18,7 +19,7 @@ void loadStyleSheet(QString path)
         {
             style.replace("@" + c.first, c.second);
         }
-
+        qApp->setStyle(QStyleFactory::create("Fusion"));
         qApp->setStyleSheet(style);
     }
 }

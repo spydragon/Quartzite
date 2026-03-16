@@ -13,11 +13,26 @@ QWidget {
 QTabBar::tab {
     width:300;
     height: 30px;
-    border:none;
-    margin:0px;
+    border: 0px;
+    margin: 0px;
     background-color: @COLOR_ACCENT_NORMAL;
+}
+
+QTabBar::tab::first {
     border-top-left-radius: 10px;
+}
+QTabBar::tab::last {
     border-top-right-radius: 10px;
+}
+
+QTabWidget {
+    width:800;
+}
+
+QTabWidget::pane {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-right: 1px;
 }
 
 QTabWidget::pane, QFrame#line {
@@ -28,9 +43,6 @@ QTabBar::tab:selected {
     background-color: @COLOR_ACCENT_HOVER;
 }
 
-QTabWidget::pane {
-    border-radius: 10px;
-}
 
 QTabWidget::tab-bar {
     alignment: center;
