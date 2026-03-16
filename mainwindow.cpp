@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "ui_mainwindow.h"
 #include "QDesktopServices"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -67,3 +67,21 @@ void MainWindow::switchProfile(QString name)
 {
     ui->toolButton->setText(name);
 }
+
+void MainWindow::on_PinnedModsButton_clicked()
+{
+    static int originalHeight = -1;
+
+    QGroupBox* PinnedModsShelf = ui->PinnedModsShelf;
+
+    if (originalHeight == -1) {
+        originalHeight = PinnedModsShelf->height();
+    }
+
+    if (PinnedModsShelf->height() == 0) {
+        PinnedModsShelf->setFixedHeight(originalHeight);
+    } else {
+        PinnedModsShelf->setFixedHeight(0);
+    }
+}
+
