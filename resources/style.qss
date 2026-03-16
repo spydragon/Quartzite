@@ -88,3 +88,7 @@ QAbstractButton#PinnedModsButton:hover {
     border-radius: 0;
     padding: 3px;
 }
+
+QGroupBox#PinnedModsShelf {
+    border: 5px solid @COLOR_ACCENT_NORMAL;
+}
