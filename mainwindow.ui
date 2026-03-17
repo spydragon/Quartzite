@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1349</width>
-    <height>587</height>
+    <width>918</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
-    <width>16777215</width>
+    <width>918</width>
     <height>16777215</height>
    </size>
   </property>
@@ -362,13 +362,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-<<<<<<< Updated upstream
-     <width>1349</width>
-     <height>23</height>
-=======
      <width>918</width>
      <height>17</height>
->>>>>>> Stashed changes
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
