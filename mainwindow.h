@@ -46,7 +46,12 @@ public slots:
     void switchProfile(QString name);
 
 private slots:
-    void on_PinnedModsButton_clicked();
+
+    void on_PinnedModsShelf_Button_clicked();
+
+    void AddNewModToList();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

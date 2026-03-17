@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>918</width>
-    <height>647</height>
+    <width>1349</width>
+    <height>587</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
-    <width>918</width>
+    <width>16777215</width>
     <height>16777215</height>
    </size>
   </property>
@@ -178,6 +178,13 @@
             </spacer>
            </item>
            <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>test mod list add</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QPushButton" name="PlayVanillaButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -207,12 +214,15 @@
          </widget>
         </item>
         <item>
-         <widget class="QScrollArea" name="scrollArea">
+         <widget class="QScrollArea" name="IsntalledModsList_Scroll">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
           </property>
           <property name="widgetResizable">
            <bool>true</bool>
@@ -222,26 +232,17 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1289</width>
-             <height>431</height>
+             <width>888</width>
+             <height>517</height>
             </rect>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <widget class="QGroupBox" name="groupBox">
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item alignment="Qt::AlignmentFlag::AlignTop">
+             <widget class="QGroupBox" name="InstalledModList_Box">
               <property name="title">
                <string/>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QScrollBar" name="verticalScrollBar">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8"/>
              </widget>
             </item>
            </layout>
@@ -249,7 +250,7 @@
          </widget>
         </item>
        </layout>
-       <zorder>scrollArea</zorder>
+       <zorder>IsntalledModsList_Scroll</zorder>
        <zorder>groupBox_2</zorder>
       </widget>
       <widget class="QWidget" name="DownloadTab">
@@ -268,54 +269,59 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="PinnedModsButton">
+         <widget class="QPushButton" name="PinnedModsShelf_Button">
           <property name="text">
            <string>Pinned Mods</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="PinnedModsShelf">
+         <widget class="QScrollArea" name="PinnedModsShelf_Scroll">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
             <height>100</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true"/>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
           </property>
-          <property name="title">
-           <string/>
+          <property name="widgetResizable">
+           <bool>true</bool>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <property name="leftMargin">
-            <number>6</number>
+          <widget class="QWidget" name="scrollAreaWidgetContents_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>888</width>
+             <height>98</height>
+            </rect>
            </property>
-           <property name="topMargin">
-            <number>6</number>
-           </property>
-           <property name="rightMargin">
-            <number>6</number>
-           </property>
-           <property name="bottomMargin">
-            <number>6</number>
-           </property>
-           <item>
-            <widget class="QColumnView" name="PinnedModsView">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>150</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
+           <layout class="QVBoxLayout" name="verticalLayout"/>
+          </widget>
          </widget>
         </item>
         <item>
-         <widget class="QTableView" name="ThunderstoreSearchView"/>
+         <widget class="QScrollArea" name="ThunderstoreSearchResults_Scroll">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>888</width>
+             <height>430</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2"/>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -325,7 +331,25 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QTableView" name="UpdateModsView"/>
+         <widget class="QScrollArea" name="ModUpdatesList_Scroll">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>888</width>
+             <height>581</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7"/>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -338,8 +362,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>918</width>
+<<<<<<< Updated upstream
+     <width>1349</width>
      <height>23</height>
+=======
+     <width>918</width>
+     <height>17</height>
+>>>>>>> Stashed changes
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
