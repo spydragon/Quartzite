@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "installedmodinfocard.h"
+#include "searchedmodinfocard.h"
 #include "colorThemes.h"
 #include "QDesktopServices"
 
@@ -79,11 +81,11 @@ void MainWindow::switchProfile(QString name)
     ui->profileChoice->setText(name);
 }
 
-void MainWindow::on_PinnedModsButton_clicked()
+void MainWindow::on_PinnedModsShelf_Button_clicked()
 {
     static int originalHeight = -1;
 
-    QGroupBox* PinnedModsShelf = ui->PinnedModsShelf;
+    QScrollArea* PinnedModsShelf = ui->PinnedModsShelf_Scroll;
 
     if (originalHeight == -1) {
         originalHeight = PinnedModsShelf->height();
@@ -94,5 +96,25 @@ void MainWindow::on_PinnedModsButton_clicked()
     } else {
         PinnedModsShelf->setFixedHeight(0);
     }
+
+}
+
+ void MainWindow::AddNewModToList()
+{
+    InstalledModInfoCard *ModCard = new InstalledModInfoCard(this);
+    ModCard->setAttribute(Qt::WA_StyledBackground);
+    ui->InstalledModList_Box->layout()->addWidget(ModCard);
+}
+
+void MainWindow::AddSearchedModResult()
+{
+    SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
+    ModCard->setAttribute(Qt::WA_StyledBackground);
+    ui->SearchedModList_Box->layout()->addWidget(ModCard);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    AddSearchedModResult();
 }
 

@@ -114,7 +114,7 @@ QLabel#title {
     font-size: 18pt;
 }
 
-QAbstractButton#PinnedModsButton {
+QAbstractButton#PinnedModsShelf_Button {
     background-color: @COLOR_BACKGROUND;
     border-left: none;
     border-top: none;
@@ -125,10 +125,18 @@ QAbstractButton#PinnedModsButton {
     padding: 3px;
     padding-top: 12px;
 }
-QAbstractButton#PinnedModsButton:hover {
+QAbstractButton#PinnedModsShelf_Button:hover {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_HOVER);
 }
 
-QGroupBox#PinnedModsShelf {
+QScrollArea#PinnedModsShelf_Scroll {
     border: 5px solid @COLOR_ACCENT_NORMAL;
+}
+
+QWidget#InstalledModInfoCard {
+    background-color: @COLOR_ACCENT_NORMAL;
+}
+
+QWidget#SearchedModInfoCard {
+    background-color: @COLOR_ACCENT_NORMAL;
 }
