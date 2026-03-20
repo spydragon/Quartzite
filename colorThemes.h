@@ -91,6 +91,7 @@ public:
         : QMenu(parent)
     {
         setAttribute(Qt::WA_TranslucentBackground);
+        setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
     }
 };
 
