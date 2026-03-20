@@ -32,15 +32,17 @@ QTabWidget {
 QTabWidget::pane {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border-top:none;
     margin-right: 1px;
 }
 
 QTabWidget::pane, QFrame#line {
-    border: 3px solid @COLOR_ACCENT_HOVER;
+    border: 3px solid @COLOR_ACCENT_BORDER;
 }
 
 QTabBar::tab:selected {
     background-color: @COLOR_ACCENT_HOVER;
+    color: @COLOR_ACCENT_TEXT_HOVER;
 }
 
 
@@ -52,26 +54,60 @@ QTabWidget::tab-bar {
 
 QAbstractButton, QMenu {
     background-color: @COLOR_ACCENT_NORMAL;
-    border: 3px solid @COLOR_ACCENT_HOVER;
-}
-
-QMenu {
-    margin: 0px;
+    border: 3px solid @COLOR_ACCENT_BORDER;
 }
 
 QAbstractButton:hover, QMenu::item:selected {
     background-color: @COLOR_ACCENT_HOVER;
+    color: @COLOR_ACCENT_TEXT_HOVER;
+}
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: @COLOR_BACKGROUND;
+}
+
+QMenu {
+/*     border-radius: 10px; */
+    padding:5px;
+}
+
+QMenu::item {
+    padding:10px;
+    border-radius: 5px;
+    background: transparent;
+}
+
+QAbstractButton::menu-indicator {
+    image: none;
+    width: 0px;
+}
+
+QScrollBar {
+    background: @COLOR_ACCENT_NORMAL;
+    border: 3px solid @COLOR_ACCENT_BORDER;
+    border-radius: 5px;
+}
+
+QScrollBar::handle {
+    background: @COLOR_ACCENT_HOVER;
+    color: @COLOR_TEXT;
+    border-radius: 5px;
+}
+QScrollBar::sub-line, QScrollBar::add-line {
+    height: 0;
 }
 
 /* Specific buttons */
 
 QAbstractButton#PlayModdedButton {
     background-color: @COLOR_PLAY_NORMAL;
-    border: 3px solid @COLOR_PLAY_HOVER;
+    border: 3px solid @COLOR_PLAY_BORDER;
+    color: @COLOR_PLAY_TEXT_NORMAL;
 }
 
 QAbstractButton#PlayModdedButton:hover {
     background-color: @COLOR_PLAY_HOVER;
+    color: @COLOR_PLAY_TEXT_HOVER;
 }
 
 QLabel#title {
@@ -80,7 +116,6 @@ QLabel#title {
 
 QAbstractButton#PinnedModsShelf_Button {
     background-color: @COLOR_BACKGROUND;
-    font-size: 12px;
     border-left: none;
     border-top: none;
     border-right: none;
@@ -88,18 +123,10 @@ QAbstractButton#PinnedModsShelf_Button {
     border-bottom-width: 6;
     border-radius: 0;
     padding: 3px;
+    padding-top: 12px;
 }
-
 QAbstractButton#PinnedModsShelf_Button:hover {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_NORMAL);
-    font-size: 12px;
-    border-left: none;
-    border-top: none;
-    border-right: none;
-    border-style: double;
-    border-bottom-width: 6;
-    border-radius: 0;
-    padding: 3px;
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_HOVER);
 }
 
 QScrollArea#PinnedModsShelf_Scroll {

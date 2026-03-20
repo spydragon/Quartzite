@@ -56,7 +56,7 @@
        <number>1</number>
       </property>
       <property name="elideMode">
-       <enum>Qt::TextElideMode::ElideNone</enum>
+       <enum>Qt::TextElideMode::ElideLeft</enum>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -98,9 +98,6 @@
           <property name="title">
            <string/>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-          </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <property name="spacing">
             <number>6</number>
@@ -131,33 +128,15 @@
             </widget>
            </item>
            <item>
-            <widget class="QToolButton" name="toolButton">
+            <widget class="QPushButton" name="profileChoice">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::InputMethodHint::ImhNone</set>
-             </property>
              <property name="text">
               <string>Default</string>
-             </property>
-             <property name="popupMode">
-              <enum>QToolButton::ToolButtonPopupMode::MenuButtonPopup</enum>
-             </property>
-             <property name="toolButtonStyle">
-              <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
-             </property>
-             <property name="autoRaise">
-              <bool>false</bool>
-             </property>
-             <property name="arrowType">
-              <enum>Qt::ArrowType::NoArrow</enum>
              </property>
             </widget>
            </item>
@@ -166,12 +145,9 @@
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Expanding</enum>
-             </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>1000</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -234,6 +210,8 @@
              <y>0</y>
              <width>888</width>
              <height>517</height>
+             <width>876</width>
+             <height>491</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -243,6 +221,16 @@
                <string/>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_8"/>
+             </widget>
+            </item>
+            <item>
+             <widget class="QScrollBar" name="verticalScrollBar">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>0</height>
+               </size>
+              </property>
              </widget>
             </item>
            </layout>
@@ -374,6 +362,12 @@
      <width>918</width>
      <height>17</height>
     </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
