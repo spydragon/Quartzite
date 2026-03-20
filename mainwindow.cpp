@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "colorThemes.h"
 #include "QDesktopServices"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -17,6 +18,15 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionReport, SIGNAL(triggered()), this, SLOT(openBugReport()));
     QObject::connect(ui->actionDiscord, SIGNAL(triggered()), this, SLOT(openDiscord()));
     QObject::connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
+    //ui->menuHelp->setAttribute(Qt::WA_TranslucentBackground);
+    for (QWidget *w : QApplication::topLevelWidgets())
+    {
+        if (QMenu *menu = qobject_cast<QMenu*>(w))
+        {
+            menu->setAttribute(Qt::WA_TranslucentBackground);
+        }
+    }
+    ui->profileChoice->setMenu(new BetterMenu(this));
 
     initProfiles();
 }
@@ -49,13 +59,13 @@ void MainWindow::openAboutDialog()
 void MainWindow::initProfiles()
 {
     // make it so that clicking on the button opens the profile list
-    QObject::connect(ui->toolButton, SIGNAL(clicked()), ui->toolButton, SLOT(showMenu()));
+    QObject::connect(ui->profileChoice, SIGNAL(clicked()), ui->profileChoice, SLOT(showMenu()));
     addProfileEntry("Default"); // TODO read from config file
 }
 
 void MainWindow::addProfileEntry(QString name)
 {
-    QAction *action = ui->toolButton->addAction(name);
+    QAction *action = ui->profileChoice->menu()->addAction(name);
     // when the entry is selected by the user, trigger profile switching
     QObject::connect(action, &QAction::triggered, this, [this, name]()
                      {
@@ -65,7 +75,7 @@ void MainWindow::addProfileEntry(QString name)
 
 void MainWindow::switchProfile(QString name)
 {
-    ui->toolButton->setText(name);
+    ui->profileChoice->setText(name);
 }
 
 void MainWindow::on_PinnedModsButton_clicked()
