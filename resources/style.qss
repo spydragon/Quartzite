@@ -89,6 +89,7 @@ QAbstractButton#PinnedModsShelf_Button {
     border-radius: 0;
     padding: 3px;
 }
+
 QAbstractButton#PinnedModsShelf_Button:hover {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_NORMAL);
     font-size: 12px;
@@ -105,10 +106,10 @@ QScrollArea#PinnedModsShelf_Scroll {
     border: 5px solid @COLOR_ACCENT_NORMAL;
 }
 
-QGroupBox#ModInfoBox {
+QWidget#InstalledModInfoCard {
     background-color: @COLOR_ACCENT_NORMAL;
 }
 
-QWidget#InstalledModInfoCard {
-    background-color: rgb(0,255,0);
+QWidget#SearchedModInfoCard {
+    background-color: @COLOR_ACCENT_NORMAL;
 }

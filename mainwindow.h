@@ -45,11 +45,16 @@ public slots:
      */
     void switchProfile(QString name);
 
+    /*
+     * Adds new mod to install list
+     */
+    void AddNewModToList();
+
 private slots:
 
     void on_PinnedModsShelf_Button_clicked();
 
-    void AddNewModToList();
+    void AddSearchedModResult();
 
     void on_pushButton_clicked();
 

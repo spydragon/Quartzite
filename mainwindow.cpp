@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "installedmodinfocard.h"
+#include "searchedmodinfocard.h"
 #include "QDesktopServices"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -84,16 +85,25 @@ void MainWindow::on_PinnedModsShelf_Button_clicked()
     } else {
         PinnedModsShelf->setFixedHeight(0);
     }
+
 }
 
-void MainWindow::AddNewModToList()
+ void MainWindow::AddNewModToList()
 {
     InstalledModInfoCard *ModCard = new InstalledModInfoCard(this);
+    ModCard->setAttribute(Qt::WA_StyledBackground);
     ui->InstalledModList_Box->layout()->addWidget(ModCard);
+}
+
+void MainWindow::AddSearchedModResult()
+{
+    SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
+    ModCard->setAttribute(Qt::WA_StyledBackground);
+    ui->SearchedModList_Box->layout()->addWidget(ModCard);
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-    AddNewModToList();
+    AddSearchedModResult();
 }
 
