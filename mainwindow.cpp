@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
         if (QMenu *menu = qobject_cast<QMenu*>(w))
         {
             menu->setAttribute(Qt::WA_TranslucentBackground);
-            menu->setWindowFlags(menu->windowFlags() | Qt::FramelessWindowHint);
+            menu->setWindowFlags(menu->windowFlags() | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
         }
     }
     ui->profileChoice->setMenu(new BetterMenu(this));
