@@ -72,7 +72,7 @@ static const Theme watermelon = {
         {"COLOR_ACCENT_NORMAL", "#0d7a0d"},
         {"COLOR_ACCENT_HOVER", "#880000"},
         {"COLOR_ACCENT_TEXT_HOVER", "#ffffff"},
-        {"COLOR_ACCENT_BORDER", "#0d7a0d"},
+        {"COLOR_ACCENT_BORDER", "#0a5c0a"},
         {"COLOR_PLAY_NORMAL", "#880000"},
         {"COLOR_PLAY_HOVER", "#cc0000"},
         {"COLOR_PLAY_BORDER", "#cc0000"},
