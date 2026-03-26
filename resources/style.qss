@@ -1,12 +1,11 @@
 /* Global style */
 
 QWidget {
-    background-color: @COLOR_BACKGROUND;
+    background-color: @COLOR_BACKGROUND1;
     font-family: Sayfull;
     font-size: 14pt;
     font-weight: 100;
     border-radius: 10px;
-    padding: 10px;
     color: @COLOR_TEXT;
 }
 
@@ -29,22 +28,21 @@ QTabWidget {
     width:800;
 }
 
+QTabWidget::pane, QFrame#line {
+    border: 3px solid @COLOR_ACCENT_BORDER;
+}
+
 QTabWidget::pane {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border-top:none;
+    border-top: 3px solid @COLOR_ACCENT_HOVER;
     margin-right: 1px;
-}
-
-QTabWidget::pane, QFrame#line {
-    border: 3px solid @COLOR_ACCENT_BORDER;
 }
 
 QTabBar::tab:selected {
     background-color: @COLOR_ACCENT_HOVER;
     color: @COLOR_ACCENT_TEXT_HOVER;
 }
-
 
 QTabWidget::tab-bar {
     alignment: center;
@@ -63,11 +61,20 @@ QAbstractButton:hover, QMenu::item:selected {
 }
 
 QMenuBar::item:selected { /* when selected using mouse or keyboard */
-    background: @COLOR_BACKGROUND;
+    background: @COLOR_BACKGROUND1;
+}
+
+QAbstractButton, QGroupBox {
+    padding: 10px;
+}
+
+QScrollArea {
+    padding: 0px;
+    margin: 0px;
 }
 
 QMenu {
-/*     border-radius: 10px; */
+    border-radius: 10px;
     padding:5px;
 }
 
@@ -83,19 +90,24 @@ QAbstractButton::menu-indicator {
 }
 
 QScrollBar {
-    background: @COLOR_ACCENT_NORMAL;
+    width: 15px;
+    background: @COLOR_BACKGROUND1;
     border: 3px solid @COLOR_ACCENT_BORDER;
     border-radius: 5px;
 }
 
 QScrollBar::handle {
-    background: @COLOR_ACCENT_HOVER;
+    background: @COLOR_ACCENT_BORDER;
     color: @COLOR_TEXT;
     border-radius: 5px;
 }
 QScrollBar::sub-line, QScrollBar::add-line {
     height: 0;
 }
+
+/*QLineEdit {
+    padding: 0px;
+}*/
 
 /* Specific buttons */
 
@@ -115,7 +127,7 @@ QLabel#title {
 }
 
 QAbstractButton#PinnedModsShelf_Button {
-    background-color: @COLOR_BACKGROUND;
+    background-color: @COLOR_BACKGROUND1;
     border-left: none;
     border-top: none;
     border-right: none;
@@ -126,17 +138,17 @@ QAbstractButton#PinnedModsShelf_Button {
     padding-top: 12px;
 }
 QAbstractButton#PinnedModsShelf_Button:hover {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND, stop:0.744318 @COLOR_ACCENT_HOVER);
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 @COLOR_BACKGROUND1, stop:0.744318 @COLOR_ACCENT_HOVER);
 }
 
 QScrollArea#PinnedModsShelf_Scroll {
-    border: 5px solid @COLOR_ACCENT_NORMAL;
+    border: 5px solid @COLOR_BACKGROUND2;
 }
 
 QWidget#InstalledModInfoCard {
-    background-color: @COLOR_ACCENT_NORMAL;
+    background-color: @COLOR_BACKGROUND2;
 }
 
 QWidget#SearchedModInfoCard {
-    background-color: @COLOR_ACCENT_NORMAL;
+    background-color: @COLOR_BACKGROUND2;
 }

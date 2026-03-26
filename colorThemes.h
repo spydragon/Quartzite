@@ -16,7 +16,8 @@ struct Theme {
 static const Theme darkRock = {
     {
         {"COLOR_TEXT", "#ffffff"},
-        {"COLOR_BACKGROUND", "#1f100d"},
+        {"COLOR_BACKGROUND1", "#1f100d"},
+        {"COLOR_BACKGROUND2", "#471a0a"},
         {"COLOR_ACCENT_NORMAL", "#471a0a"},
         {"COLOR_ACCENT_HOVER", "#732a10"},
         {"COLOR_ACCENT_TEXT_HOVER", "#ffffff"},
@@ -32,11 +33,12 @@ static const Theme darkRock = {
 static const Theme lightRock = {
     {
         {"COLOR_TEXT", "#301e0f"},
-        {"COLOR_BACKGROUND", "#e3daca"},
+        {"COLOR_BACKGROUND1", "#e3daca"},
+        {"COLOR_BACKGROUND2", "#9c9491"},
         {"COLOR_ACCENT_NORMAL", "#9c9491"},
-        {"COLOR_ACCENT_HOVER", "#aaaaaa"},
+        {"COLOR_ACCENT_HOVER", "#b7b1ae"},
         {"COLOR_ACCENT_TEXT_HOVER", "#301e0f"},
-        {"COLOR_ACCENT_BORDER", "#aaaaaa"},
+        {"COLOR_ACCENT_BORDER", "#9c9491"},
         {"COLOR_PLAY_NORMAL", "#32cc32"},
         {"COLOR_PLAY_HOVER", "#54ee54"},
         {"COLOR_PLAY_BORDER", "#54ee54"},
@@ -48,7 +50,8 @@ static const Theme lightRock = {
 static const Theme console = {
     {
         {"COLOR_TEXT", "#ffffff"},
-        {"COLOR_BACKGROUND", "#000000"},
+        {"COLOR_BACKGROUND1", "#000000"},
+        {"COLOR_BACKGROUND2", "#ffffff"},
         {"COLOR_ACCENT_NORMAL", "#000000"},
         {"COLOR_ACCENT_HOVER", "#ffffff"},
         {"COLOR_ACCENT_TEXT_HOVER", "#000000"},
@@ -64,7 +67,8 @@ static const Theme console = {
 static const Theme watermelon = {
     {
         {"COLOR_TEXT", "#ffffff"},
-        {"COLOR_BACKGROUND", "#072907"},
+        {"COLOR_BACKGROUND1", "#072907"},
+        {"COLOR_BACKGROUND2", "#0d7a0d"},
         {"COLOR_ACCENT_NORMAL", "#0d7a0d"},
         {"COLOR_ACCENT_HOVER", "#880000"},
         {"COLOR_ACCENT_TEXT_HOVER", "#ffffff"},

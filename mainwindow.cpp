@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionReport, SIGNAL(triggered()), this, SLOT(openBugReport()));
     QObject::connect(ui->actionDiscord, SIGNAL(triggered()), this, SLOT(openDiscord()));
     QObject::connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
-    //ui->menuHelp->setAttribute(Qt::WA_TranslucentBackground);
+    // force all menus to be properly drawn on all operating systems
     for (QWidget *w : QApplication::topLevelWidgets())
     {
         if (QMenu *menu = qobject_cast<QMenu*>(w))
@@ -116,5 +116,6 @@ void MainWindow::AddSearchedModResult()
 void MainWindow::on_pushButton_clicked()
 {
     AddSearchedModResult();
+    AddNewModToList();
 }
 

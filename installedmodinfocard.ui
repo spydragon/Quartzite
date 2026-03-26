@@ -128,7 +128,7 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+      <item>
        <widget class="QPushButton" name="ModDisableButton">
         <property name="minimumSize">
          <size>
@@ -147,7 +147,7 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignBottom">
+      <item>
        <widget class="QPushButton" name="ModRemoveButton">
         <property name="minimumSize">
          <size>
@@ -165,7 +165,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+         <iconset theme="QIcon::ThemeIcon::EditDelete">
+          <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
       </item>
