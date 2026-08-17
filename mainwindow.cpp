@@ -4,6 +4,17 @@
 #include "searchedmodinfocard.h"
 #include "colorThemes.h"
 #include "QDesktopServices"
+#include <QMessageBox>
+#include <QTimer>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QJsonDocument>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <iostream>
+#include <unistd.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +31,20 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionReport, SIGNAL(triggered()), this, SLOT(openBugReport()));
     QObject::connect(ui->actionDiscord, SIGNAL(triggered()), this, SLOT(openDiscord()));
     QObject::connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
+
+    // mod search debouncer
+    modSearchManager = new QNetworkAccessManager(this);
+
+    QTimer* debounceTimer = new QTimer(this);
+    debounceTimer->setSingleShot(true);
+    debounceTimer->setInterval(750);
+    QObject::connect(ui->ThunderstoreSearch, &QLineEdit::textEdited, this, [=]() {
+        debounceTimer->start();
+    });
+    QObject::connect(debounceTimer, &QTimer::timeout, this, [this]() {
+        SearchForMods();
+    });
+
     // force all menus to be properly drawn on all operating systems
     for (QWidget *w : QApplication::topLevelWidgets())
     {
@@ -71,9 +96,9 @@ void MainWindow::addProfileEntry(QString name)
     QAction *action = ui->profileChoice->menu()->addAction(name);
     // when the entry is selected by the user, trigger profile switching
     QObject::connect(action, &QAction::triggered, this, [this, name]()
-                     {
-                         switchProfile(name);
-                     });
+    {
+        switchProfile(name);
+    });
 }
 
 void MainWindow::switchProfile(QString name)
@@ -99,23 +124,73 @@ void MainWindow::on_PinnedModsShelf_Button_clicked()
 
 }
 
- void MainWindow::AddNewModToList()
+void MainWindow::AddNewModToList()
 {
     InstalledModInfoCard *ModCard = new InstalledModInfoCard(this);
     ModCard->setAttribute(Qt::WA_StyledBackground);
     ui->InstalledModList_Box->layout()->addWidget(ModCard);
 }
 
-void MainWindow::AddSearchedModResult()
+QNetworkReply* MainWindow::GetApi(QString apiType) {
+    if (apiType == "Search") {
+        QString searchURL = "https://thunderstore.io/api/cyberstorm/listing/rumble/";
+        if (ui->ThunderstoreSearch->text() != "")
+        {
+            searchURL = searchURL + "?q=" + ui->ThunderstoreSearch->text();
+        }
+        QNetworkRequest request{QUrl(searchURL)};
+        return modSearchManager->get(request);
+    }
+}
+
+void MainWindow::SearchForMods()
 {
-    SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
-    ModCard->setAttribute(Qt::WA_StyledBackground);
-    ui->SearchedModList_Box->layout()->addWidget(ModCard);
+    QNetworkReply *result = GetApi("Search");
+    QObject::connect(result, &QNetworkReply::finished, this, [=]() {
+        QByteArray resultData = result->readAll();
+        QJsonParseError error;
+        QJsonDocument jsonData = QJsonDocument::fromJson( resultData, &error);
+        QJsonObject resultJson = jsonData.object();
+        AddSearchedModResults(resultJson);
+        result->deleteLater();
+    });
+}
+void MainWindow::AddSearchedModResults(QJsonObject modSearchJson)
+{
+    // I had to ask AI how to delete elements. this is not human code
+    QLayout *layout = ui->SearchedModList_Box->layout();
+    if (layout) {
+        for (int i = layout->count() - 1; i >= 0; --i) {
+            QLayoutItem *item = layout->itemAt(i);
+
+            if (item->spacerItem() || item->widget() == ui->PinnedModsShelf_Scroll) {
+                continue;
+            }
+
+            if (QWidget *widget = item->widget()) {
+                layout->removeItem(item);
+                widget->deleteLater();
+                delete item;
+            }
+        }
+    }
+
+
+    QJsonArray results = modSearchJson["results"].toArray();
+    int resultLength = results.size();
+    double resultCount = modSearchJson["count"].toDouble();
+    qDebug() << resultCount;
+    for (int index = 0; index < resultLength; index++) {
+        QString name = modSearchJson["results"][index]["name"].toString();
+        QString authorName = modSearchJson["results"][index]["namespace"].toString();
+        SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
+        ModCard->modName(name);
+        ModCard->modAuthorName(authorName);
+        ModCard->setAttribute(Qt::WA_StyledBackground);
+        ui->SearchedModList_Box->layout()->addWidget(ModCard);
+    };
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-    AddSearchedModResult();
-    AddNewModToList();
 }
-

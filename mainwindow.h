@@ -4,12 +4,16 @@
 #include <QMainWindow>
 #include "./settings.h"
 #include "./aboutdialog.h"
+#include "QJsonObject"
+#include <QNetworkReply>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
+class QNetworkAccessManager;
 
 class MainWindow : public QMainWindow
 {
@@ -50,11 +54,17 @@ public slots:
      */
     void AddNewModToList();
 
+    /*
+     * searches for mods and sends results to AddSearchedModResult()
+     */
+    void SearchForMods();
+
+
 private slots:
 
     void on_PinnedModsShelf_Button_clicked();
 
-    void AddSearchedModResult();
+    void AddSearchedModResults(QJsonObject modSearchJson);
 
     void on_pushButton_clicked();
 
@@ -62,6 +72,8 @@ private:
     Ui::MainWindow *ui;
     Settings *settings;
     AboutDialog *aboutDialog;
+    QNetworkAccessManager *modSearchManager;
+    QNetworkReply* GetApi(QString apiType);
 
     /*
      * Initializes the list of available profiles

@@ -6,6 +6,8 @@ SearchedModInfoCard::SearchedModInfoCard(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::SearchedModInfoCard)
 {
+    QString description;
+    QString icon;
     ui->setupUi(this);
 }
 
@@ -20,4 +22,12 @@ void SearchedModInfoCard::on_AddMod_Button_clicked()
     if (mainWin) {
         mainWin->AddNewModToList();
     }
+}
+
+void SearchedModInfoCard::modName(const QString &text) {
+    ui->modName->setText(text);
+}
+
+void SearchedModInfoCard::modAuthorName(const QString &text) {
+    ui->authorName->setText(text);
 }

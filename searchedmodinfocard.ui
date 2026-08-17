@@ -70,7 +70,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="modName">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -95,7 +95,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="authorName">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -164,8 +164,7 @@
          <string notr="true">0</string>
         </property>
         <property name="icon">
-         <iconset theme="QIcon::ThemeIcon::MediaEject">
-          <normaloff>.</normaloff>.</iconset>
+         <iconset theme="QIcon::ThemeIcon::MediaEject"/>
         </property>
        </widget>
       </item>

@@ -12,10 +12,10 @@ class SearchedModInfoCard : public QWidget
     Q_OBJECT
 
 public:
+    void modName(const QString &text);
+    void modAuthorName(const QString &text);
     explicit SearchedModInfoCard(QWidget *parent = nullptr);
     ~SearchedModInfoCard();
-
-
 
 private slots:
     void on_AddMod_Button_clicked();
