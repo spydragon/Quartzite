@@ -31,10 +31,8 @@ ui_*.h
 qrc_*.cpp
 Thumbs.db
 *.res
-*.rc
 /.qmake.cache
 /.qmake.stash
-CMakeCache.txt
 
 # qtcreator generated files
 *.pro.user*
@@ -81,3 +79,11 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 /build*/
+
+# Qt Creator & CMake local configurations
+.cmake/
+.qtcreator/
+CMakeFiles/
+qtcsettings.cmake
+CMakeCache.txt
+
