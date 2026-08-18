@@ -2,6 +2,7 @@
 #define SEARCHEDMODINFOCARD_H
 
 #include <QWidget>
+#include <QLabel>
 
 namespace Ui {
 class SearchedModInfoCard;
@@ -14,8 +15,10 @@ class SearchedModInfoCard : public QWidget
 public:
     void modName(const QString &text);
     void modAuthorName(const QString &text);
+    void modImage(const QString icon, QLabel* label);
     explicit SearchedModInfoCard(QWidget *parent = nullptr);
     ~SearchedModInfoCard();
+    QLabel* GetLabel();
 
 private slots:
     void on_AddMod_Button_clicked();

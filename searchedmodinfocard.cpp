@@ -1,6 +1,7 @@
 #include "searchedmodinfocard.h"
 #include "./ui_searchedmodinfocard.h"
 #include "mainwindow.h"
+#include <QLabel>
 
 SearchedModInfoCard::SearchedModInfoCard(QWidget *parent)
     : QWidget(parent)
@@ -14,6 +15,10 @@ SearchedModInfoCard::SearchedModInfoCard(QWidget *parent)
 SearchedModInfoCard::~SearchedModInfoCard()
 {
     delete ui;
+}
+
+QLabel* SearchedModInfoCard::GetLabel() {
+    return ui->Image;
 }
 
 void SearchedModInfoCard::on_AddMod_Button_clicked()
@@ -30,4 +35,9 @@ void SearchedModInfoCard::modName(const QString &text) {
 
 void SearchedModInfoCard::modAuthorName(const QString &text) {
     ui->authorName->setText(text);
+}
+
+void SearchedModInfoCard::modImage(const QString icon, QLabel* label) {
+    MainWindow *mainWin = qobject_cast<MainWindow*>(window());
+    mainWin->UrlImageToLabel(icon, label);
 }

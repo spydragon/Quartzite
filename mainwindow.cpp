@@ -15,6 +15,8 @@
 #include <QJsonArray>
 #include <iostream>
 #include <unistd.h>
+#include <QImage>
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -31,7 +33,6 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionReport, SIGNAL(triggered()), this, SLOT(openBugReport()));
     QObject::connect(ui->actionDiscord, SIGNAL(triggered()), this, SLOT(openDiscord()));
     QObject::connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
-
     // mod search debouncer
     modSearchManager = new QNetworkAccessManager(this);
 
@@ -143,6 +144,18 @@ QNetworkReply* MainWindow::GetApi(QString apiType) {
     }
 }
 
+void MainWindow::UrlImageToLabel(QString url, QLabel *label) {
+    QNetworkRequest imageRequest{QUrl(url)};
+    QNetworkReply *imageReply = modSearchManager->get(imageRequest);
+    QObject::connect(imageReply, &QNetworkReply::finished, this, [=]() {
+        QByteArray imageData = imageReply->readAll();
+        QPixmap icon;
+        icon.loadFromData(imageData);
+        imageReply->deleteLater();
+        label->setPixmap(icon);
+    });
+}
+
 void MainWindow::SearchForMods()
 {
     QNetworkReply *result = GetApi("Search");
@@ -155,6 +168,7 @@ void MainWindow::SearchForMods()
         result->deleteLater();
     });
 }
+
 void MainWindow::AddSearchedModResults(QJsonObject modSearchJson)
 {
     // I had to ask AI how to delete elements. this is not human code
@@ -183,14 +197,15 @@ void MainWindow::AddSearchedModResults(QJsonObject modSearchJson)
     for (int index = 0; index < resultLength; index++) {
         QString name = modSearchJson["results"][index]["name"].toString();
         QString authorName = modSearchJson["results"][index]["namespace"].toString();
+        QString imageURL = modSearchJson["results"][index]["icon_url"].toString();
         SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
+        QLabel* imageLabel = ModCard->GetLabel();
         ModCard->modName(name);
         ModCard->modAuthorName(authorName);
+        ModCard->modImage(imageURL, imageLabel);
         ModCard->setAttribute(Qt::WA_StyledBackground);
+        imageLabel->setScaledContents(true);
         ui->SearchedModList_Box->layout()->addWidget(ModCard);
     };
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-}

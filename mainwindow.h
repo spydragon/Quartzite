@@ -6,6 +6,7 @@
 #include "./aboutdialog.h"
 #include "QJsonObject"
 #include <QNetworkReply>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -59,14 +60,17 @@ public slots:
      */
     void SearchForMods();
 
+    /*
+     * take a url and spits out a pixmap
+     */
+    void UrlImageToLabel(QString url, QLabel *label);
+
 
 private slots:
 
     void on_PinnedModsShelf_Button_clicked();
 
     void AddSearchedModResults(QJsonObject modSearchJson);
-
-    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

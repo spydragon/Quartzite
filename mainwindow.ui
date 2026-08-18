@@ -154,19 +154,6 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>test mod list add</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QPushButton" name="PlayVanillaButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
