@@ -16,6 +16,7 @@ public:
     void modName(const QString &text);
     void modAuthorName(const QString &text);
     void modImage(const QString icon, QLabel* label);
+    void modDescription(const QString &text);
     explicit SearchedModInfoCard(QWidget *parent = nullptr);
     ~SearchedModInfoCard();
     QLabel* GetLabel();
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::SearchedModInfoCard *ui;
+    QString formatCapitalizedString(const QString &input);
 };
 
 #endif // SEARCHEDMODINFOCARD_H

@@ -198,11 +198,13 @@ void MainWindow::AddSearchedModResults(QJsonObject modSearchJson)
         QString name = modSearchJson["results"][index]["name"].toString();
         QString authorName = modSearchJson["results"][index]["namespace"].toString();
         QString imageURL = modSearchJson["results"][index]["icon_url"].toString();
+        QString description = modSearchJson["results"][index]["description"].toString();
         SearchedModInfoCard *ModCard = new SearchedModInfoCard(this);
         QLabel* imageLabel = ModCard->GetLabel();
         ModCard->modName(name);
         ModCard->modAuthorName(authorName);
         ModCard->modImage(imageURL, imageLabel);
+        ModCard->modDescription(description);
         ModCard->setAttribute(Qt::WA_StyledBackground);
         imageLabel->setScaledContents(true);
         ui->SearchedModList_Box->layout()->addWidget(ModCard);
